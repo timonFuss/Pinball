@@ -1,0 +1,99 @@
+﻿<UserControl x:Class="Client.View.UserControls.EditorMenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Client.View.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="880" d:DesignWidth="1400">
+
+    <Grid HorizontalAlignment="Left" Height="850" VerticalAlignment="Top" Width="1390" Margin="0,0,0,0" Background="#373737">
+        <Border CornerRadius="25,25,25,25" BorderThickness="1">
+            <Grid Margin="120,120,120,120">
+                <!--abgerundetes linkes Feld um das Canvas (Border notwendig für Färbung und Abrundung der Ecken)-->
+                <Border Margin="0,0,516,0" CornerRadius="50,0,0,50" Background="#FFB700">
+                    <Canvas>
+                        <Canvas.Background>
+                            <VisualBrush/>
+                        </Canvas.Background>
+                    </Canvas>
+                </Border>
+                <!--abgerundetes rechtes Feld um das Canvas (Border notwendig für Färbung und Abrundung der Ecken)-->
+                <Border Margin="575,0,0,0" Background="#FF7C00" CornerRadius="0,50,50,0">
+                    <Canvas Margin="512.5,0,0,0">
+                        <Canvas.Background>
+                            <VisualBrush/>
+                        </Canvas.Background>
+                    </Canvas>
+                </Border>
+                <!--abgerundetes Userfeld-->
+                <Border CornerRadius="25,25,25,25" Background="#373737" Width="150" Height="350"  Margin="50,223,950,35">
+                    <Grid>
+                        <StackPanel>
+                            <Image Source="../../Resources/Pictures/Icon_Network.png" Margin="0,0,0,0" Height="50"/>
+                            <ItemsControl ItemsSource="{Binding Clientlist}" ScrollViewer.VerticalScrollBarVisibility="Auto" Foreground="#FFB700" HorizontalAlignment="Center" FontSize="18"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <!--Ueberschrift-->
+                <Image Source="../../Resources/Pictures/text_Editierraueme.png" Margin="375,60,360,402" VerticalAlignment="Top"/>
+                <!--<Image Source="../../Pictures/Mehrspielermodus_text.png" Margin="250,15,250,413"/>-->
+
+                <Button Name="back" Command="{Binding BackCommand}" BorderThickness="0"  HorizontalAlignment="Left"  Margin="66,66,0,433">
+                    <Button.Background>
+                        <VisualBrush/>
+                    </Button.Background>
+                    <StackPanel>
+                        <Image Source="../../Resources/Pictures/menu.png" Height="44" Width="49"/>
+                    </StackPanel>
+                </Button>
+
+                <!--Liste mit Spielen-->
+                <ScrollViewer Margin="250,223,64,74">
+                    <WrapPanel>
+                        <ItemsControl ItemsSource="{Binding Editorlist, Mode=TwoWay}" >
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel>
+                                    </WrapPanel>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <WrapPanel Orientation="Vertical">
+                                        <Border Style="{StaticResource DefaultBorderStyle}" Margin="5" Height="100" Width="150">
+                                            <Button x:Name="Spiel1" BorderBrush="Transparent" Command="{Binding OpenEditorCommand}" Style="{StaticResource DefaultButtonStyle}">
+                                                <Button.Content>
+                                                    <StackPanel>
+                                                        <TextBlock Text="{Binding RoomName}"/>
+                                                        <TextBlock Text="{Binding Player, StringFormat=\{0\} Bastler}"/>
+                                                    </StackPanel>
+                                                </Button.Content>
+                                                <Button.Background>
+                                                    <VisualBrush/>
+                                                </Button.Background>
+                                            </Button>
+                                        </Border>
+                                    </WrapPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                        <Border Style="{StaticResource DefaultBorderStyle}" Margin="5" Height="100" Width="150">
+                            <Button x:Name="newGame" BorderBrush="Transparent" Command="{Binding NewRoomCommand}" Style="{StaticResource DefaultButtonStyle}">
+                                <Button.Content>
+                                    <TextBlock Text="+"/>
+                                </Button.Content>
+                                <Button.Background>
+                                    <VisualBrush/>
+                                </Button.Background>
+                            </Button>
+                        </Border>
+
+                    </WrapPanel>
+                </ScrollViewer>
+
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

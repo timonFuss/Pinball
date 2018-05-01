@@ -1,0 +1,201 @@
+﻿<UserControl x:Class="Client.View.UserControls.EditorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Client.View.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="850" d:DesignWidth="1390"
+             Loaded="UserControl_Loaded">
+
+    <Grid HorizontalAlignment="Left" Height="850" VerticalAlignment="Top" Width="1390" Margin="0,0,0,0" Background="Gray" MouseMove="Grid_MouseMove" MouseLeftButtonUp="Grid_MouseLeftButtonUp">
+        <Grid HorizontalAlignment="Left" Width="540" MouseLeftButtonUp="RulerImage_MouseLeftButtonUp">
+            <TextBlock Margin="0,10,0,0" Text="{Binding RoomName}" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#373737" FontSize="20"/>
+            <TextBlock Margin="0,35,0,0" Text="{Binding TemplateName}" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#373737" FontSize="16"/>
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal" Width="540">
+                    <!--Verlassen-->
+                    <Button Width="50" Height="50" BorderThickness="0" Command="{Binding LeaveCommand}" ToolTip="Verlassen des Editorraums" HorizontalAlignment="Left" Margin="25,10,0,0">
+                        <Button.Background>
+                            <VisualBrush/>
+                        </Button.Background>
+                        <StackPanel>
+                            <Image Source="../../Resources/Pictures/left-arrow.png"/>
+                        </StackPanel>
+                    </Button>
+                    <!--Help-->
+                    <Button Margin="390,0,0,0" Width="50" Height="50" BorderThickness="0" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                        <Button.Background>
+                            <VisualBrush/>
+                        </Button.Background>
+                        <Button.ToolTip>
+                            <ToolTip>
+                                <StackPanel>
+                                    <TextBlock>• Platzieren von Elementen per Drag and Drop aus dem Raster</TextBlock>
+                                    <TextBlock>• Verschieben von Elementen per Drag and Drop</TextBlock>
+                                    <TextBlock>• Löschen von Elementen per Mausrad-Klick</TextBlock>
+                                    <Separator Margin="0,15,0,15" Background="Black" BorderBrush="Black" Height="5"/>
+                                    <TextBlock>Die Strafräume, der Plunger, sowie der Libero der</TextBlock>
+                                    <TextBlock>einzelnen Spieler können nicht verschoben werden.</TextBlock>
+                                    <Separator Margin="0,15,0,15" Background="Black" BorderBrush="Black" Height="5"/>
+                                    <TextBlock>Es wird deshalb gebeten die Strafräume der Spieler</TextBlock>
+                                    <TextBlock>nicht mit Elementen zu belegen.</TextBlock>
+                                    <TextBlock>Wir bitten um Fairplay.</TextBlock>
+                                </StackPanel>
+                            </ToolTip>
+                        </Button.ToolTip>
+                        <StackPanel>
+                            <Image Source="../../Resources/Pictures/help.png"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                <Image Source="../../Resources/Pictures/Logo_swt.png" Height="200" Margin="0,15" />
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <TextBlock Margin="35,0,0,0" Text="Spielfeldname" HorizontalAlignment="Center" Foreground="Black" FontSize="24" VerticalAlignment="Center"/>
+                    <Border Margin="15,0,0,0" CornerRadius="25" Background="white">
+                        <TextBox Name="Fieldname" Text="{Binding Gamefieldname,UpdateSourceTrigger=PropertyChanged}" Width="240" BorderThickness="0" FontSize="32" VerticalContentAlignment="Center">
+                            <TextBox.Background>
+                                <VisualBrush/>
+                            </TextBox.Background>
+                        </TextBox>
+                    </Border>
+                    <Label Margin="0,0,0,0" Width="19" Height="50" BorderThickness="0" HorizontalAlignment="Right" Content="!" FontSize="30" Foreground="Red" Visibility="{Binding ValidGamefieldname}">
+                        <Label.ToolTip>
+                            <ToolTip>
+                                <TextBlock><Run Text="Erlaubte Zeichen : A-Z, 0-9 und -_"/></TextBlock>
+                            </ToolTip>
+                        </Label.ToolTip>
+                    </Label>
+                    <Button Margin="5,0" Width="40" Height="50" BorderThickness="0" Command="{Binding ChangeNameCommand}" ToolTip="Spielfeld umbenennen">
+                        <Button.Background>
+                            <VisualBrush/>
+                        </Button.Background>
+                        <StackPanel>
+                            <Image Source="../../Resources/Pictures/next.png"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                <Separator Margin="35,5,35,5" Background="Black" BorderBrush="Black" Height="5"/>
+                <Grid Height="232">
+                    <ListView Name="listView" Background="White" Margin="35,0,35,0" >
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Columns="3" IsItemsHost="True"/>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding Image}" MouseLeftButtonDown="ListImage_MouseLeftButtonDown" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    <TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" Foreground="Orange" Margin="5,0,0,0"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+                <Separator Margin="35,5,35,5" Background="Black" BorderBrush="Black" Height="5"/>
+                <Grid>
+                    <ScrollViewer VerticalScrollBarVisibility="Visible" Height="100" Margin="35,0,35,0">
+                        <ItemsControl ItemsSource="{Binding Editorlist}" ScrollViewer.VerticalScrollBarVisibility="Auto" Foreground="#FFB700" Background="White" FontSize="26" />
+                    </ScrollViewer>
+                </Grid>
+                <Separator Margin="35,5,35,5" Background="Black" BorderBrush="Black" Height="5"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <!--undo-->
+                    <Button Name="undo" Margin="28,0" Width="50" Height="50" BorderThickness="0" ToolTip="Rückgängig (Strg+Z)" Command="{Binding UndoCommand}">
+                        <Button.Background>
+                            <VisualBrush/>
+                        </Button.Background>
+                        <StackPanel>
+                            <Image Source="../../Resources/Pictures/undo.png"/>
+                        </StackPanel>
+                    </Button>
+                    <!--redo-->
+                    <Button Name="redo" Margin="28,0" Width="50" Height="50" BorderThickness="0" ToolTip="Rückgängigmachen widerrufen (Strg+Y)" Command="{Binding RedoCommand}">
+                        <Button.Background>
+                            <VisualBrush/>
+                        </Button.Background>
+                        <StackPanel>
+                            <Image Source="../../Resources/Pictures/redo.png"/>
+                        </StackPanel>
+                    </Button>
+                    <!--müll-->
+                    <Button Name="Muelleimer" Margin="28,0" Width="54" Height="50" BorderThickness="0">
+                        <Button.Background>
+                            <VisualBrush/>
+                        </Button.Background>
+                        <Button.ToolTip>
+                            <ToolTip>
+                                <StackPanel>
+                                    <TextBlock>Drop auf den Mülleimer entfernt ausgewähltes Item</TextBlock>
+                                    <Separator Margin="0,15,0,15" Background="Black" BorderBrush="Black" Height="5"/>
+                                    <TextBlock>(Mausradklick auf Element entfernt direkt)</TextBlock>
+                                </StackPanel>
+                            </ToolTip>
+                        </Button.ToolTip>
+                        <Canvas AllowDrop="True" MouseLeftButtonUp="DeleteCanvas_MouseLeftButtonUp" Height="50" Width="50">
+                            <Image Source="../../Resources/Pictures/trash.png" Height="50" Width="50" Canvas.Top="-1"/>
+                        </Canvas>
+                    </Button>
+                    <!--speichern-->
+                    <Button Name="save" Margin="28,0" Width="50" Height="50" BorderThickness="0" Command="{Binding SaveCommand}" ToolTip="Speichert das erstellte Spielfeld">
+                        <Button.Background>
+                            <VisualBrush/>
+                        </Button.Background>
+                        <StackPanel>
+                            <Image Source="../../Resources/Pictures/save.png" Width="40"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                <TextBlock Margin="10" FontSize="16" HorizontalAlignment="Center" Text="Speichern erfolgreich" Visibility="{Binding SaveMessageVisibility}"/>
+            </StackPanel>
+        </Grid>
+        <Grid Margin="540,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Height="25" VerticalAlignment="Top">
+                <!--killLines-->
+                <Button Name="killLines" Width="25" Height="25" BorderThickness="0" HorizontalAlignment="Left">
+                    <Button.Background>
+                        <VisualBrush/>
+                    </Button.Background>
+                    <Button.ToolTip>
+                        <ToolTip>
+                            <StackPanel>
+                                <TextBlock>Löscht alle Hilfslinien auf dem Feld</TextBlock>
+                            </StackPanel>
+                        </ToolTip>
+                    </Button.ToolTip>
+                    <Canvas Height="25" Width="25">
+                        <Image Source="../../Resources/Pictures/killLines.png" Height="25" Width="25" Canvas.Top="-1" MouseLeftButtonDown="killLines_MouseLeftButtonDown"/>
+                    </Canvas>
+                </Button>
+                <Image Source="../../Resources/Pictures/Raster_oben.png" VerticalAlignment="Bottom" Margin="25,0,25,0" MouseLeftButtonDown="RulerImage_MouseLeftButtonDown_Top" MouseLeftButtonUp="RulerImage_MouseLeftButtonUp"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Width="25">
+                    <Image Source="../../Resources/Pictures/Raster_Links.png" HorizontalAlignment="Right" Margin="0,1,0,25" MouseLeftButtonDown="RulerImage_MouseLeftButtonDown_Left" MouseLeftButtonUp="RulerImage_MouseLeftButtonUp"/>
+                </Grid>
+                <Canvas Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="800" Height="800" x:Name="EditorCanvas">
+                    <Canvas.Background>
+                        <ImageBrush ImageSource="../../Resources/Pictures/Spielfeld.png"></ImageBrush>
+                    </Canvas.Background>
+                </Canvas>
+            </Grid>
+            
+        </Grid>
+    </Grid>
+</UserControl>

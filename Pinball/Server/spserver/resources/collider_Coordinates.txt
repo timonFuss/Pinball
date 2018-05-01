@@ -1,0 +1,233 @@
+stein_0
+Kreis 7,5 7,5 7,5
+
+stein_1
+Kreis 13,5 13,5 13,5
+
+stein_2
+Kreis 26 26 26
+
+wand_stark_0
+Kreis 6 42 7
+Kreis 5 41 48
+Kreis 5,5 5,5 69,5
+Rectangle 8 75 0 19 30,696
+Rectangle 8 42 7 38 1,471
+Rectangle 6 42 40 20 58,285
+
+wand_stark_1
+Kreis 5 5 5
+Kreis 6,5 41,5 68,5
+Kreis 4 5 48
+Rectangle 6 39 8 1 0
+Rectangle 10 68 2 18 -29,906
+Rectangle 6 43 38 19 -58,868
+
+wand_stark_2
+Kreis 5 44 5
+Kreis 5 5 73
+Kreis 6 6 29
+Rectangle 10 78 0 20 30,023
+Rectangle 7 50 -9 19 57,906
+Rectangle 7 43 29 1 1,723
+
+wand_stark_3
+Kreis 5,5 5,5 5,5
+Kreis 5,5 43,5 72,5
+Kreis 7 41 30
+Rectangle 10 76 2 20 -28,98
+Rectangle 9 43 30 39 -2,332
+Rectangle 10 39 -2 20 -56,02
+
+wand_schwach_0
+Kreis 3 11 69
+Kreis 3 80 21
+Rectangle 6 18 51 4 158,336
+Rectangle 6 12 9 72 136,969
+Rectangle 8 25 -7 27 69,826
+Rectangle 8 31 3 7 35,737
+Rectangle 6 22 30 1 0,645
+Rectangle 8 31 -10 53 105,442
+
+wand_schwach_1
+Kreis 3 3 20
+Kreis 3 70 69
+Rectangle 6 19 4 8 -121,285
+Rectangle 5 12 57 72 -150,72
+Rectangle 6 39 4 70 155,688
+Rectangle 6 31 -10 50 102,635
+Rectangle 6 23 -7 26 74,999
+Rectangle 5 19 40 76 -174,355
+
+wand_schwach_2
+Kreis 3 3 52
+Kreis 3 73 3
+Rectangle 6 34 45 15 -57,174
+Rectangle 5 29 54 44 -94,735
+Rectangle 6 30 42 66 -134,348
+Rectangle 6 28 22 77 -170,64
+Rectangle 6 22 3 75 160,808
+
+wand_schwach_3
+Kreis 3,5 10,5 3,5
+Kreis 4 80 53
+Rectangle 6 32 5 2 11,028
+Rectangle 6 28 34 5 -30,327
+Rectangle 6 27 51 22 -65,641
+Rectangle 6 25 55 47 -100,696
+Rectangle 6 21 49 68 -124,602
+
+FLIPPER_PLAYER_1_LEFT
+Rectangle 64 26 0 0 0
+
+FLIPPER_PLAYER_1_RIGHT
+Rectangle 64 26 0 0 0
+
+FLIPPER_PLAYER_2_LEFT
+Rectangle 64 26 0 0 0
+
+FLIPPER_PLAYER_2_RIGHT
+Rectangle 64 26 0 0 0
+
+FLIPPER_PLAYER_3_LEFT
+Rectangle 26 64 0 0 0
+
+FLIPPER_PLAYER_3_RIGHT
+Rectangle 26 64 0 0 0
+
+FLIPPER_PLAYER_4_LEFT
+Rectangle 26 64 0 0 0
+
+FLIPPER_PLAYER_4_RIGHT
+Rectangle 26 64 0 0 0
+
+LIBERO_PLAYER_1
+Kreis 25 25 25
+
+LIBERO_PLAYER_2
+Kreis 25 25 25
+
+LIBERO_PLAYER_3
+Kreis 25 25 25
+
+LIBERO_PLAYER_4
+Kreis 25 25 25
+
+goalPost_player_1
+Rectangle 10 53 0 0 0
+
+goalPost_player_2
+Rectangle 10 53 0 0 0
+
+goalPost_player_3
+Rectangle 53 10 0 0 0
+
+goalPost_player_4
+Rectangle 53 10 0 0 0
+
+goal_player_1
+Rectangle 146 1 16 0 0
+
+goal_player_2
+Rectangle 146 1 0 0 0
+
+goal_player_3
+Rectangle 1 146 0 0 0
+
+goal_player_4
+Rectangle 1 146 0 16 0
+
+goalarea_player_1
+Rectangle 213 139 0 0 0
+
+goalarea_player_2
+Rectangle 213 139 0 0 0
+
+goalarea_player_3
+Rectangle 139 213 0 0 0
+
+goalarea_player_4
+Rectangle 139 213 0 0 0
+
+plunger
+Kreis 42 42 42
+
+curve_1
+Kreis 7 217 187
+Kreis 7 80 53
+Rectangle 42 6 25 46 64,146
+Rectangle 4 35 86 255 181,836
+Rectangle 31 4 225 243 62,702
+Rectangle 22 5 248 257 69,631
+Rectangle 57 9 160 211 123,505
+Rectangle 36 8 198 220 210,824
+Rectangle 29 8 123 242 107,401
+Rectangle 9 43 15 97 50,199
+Rectangle 6 32 -13 22 101,643
+Rectangle 9 27 -4 42 116,607
+Rectangle 53 9 57 223 64,106
+Rectangle 9 36 0 129 70,518
+Rectangle 9 48 1 214 123,746
+Rectangle 219 16 0 53 0
+Rectangle 15 212 16 257 0
+
+curve_0
+Kreis 7 191 51
+Kreis 7 52 191
+Rectangle 219 15 0 0 0
+Rectangle 15 212 13 -1 0
+Rectangle 28 4 20 49 -25,949
+Rectangle 6 26 41 24 35,821
+Rectangle 4 35 229 3 18,131
+Rectangle 6 25 22 39 47,472
+Rectangle 25 5 6 217 -27,393
+Rectangle 22 5 0 238 -7,8
+Rectangle 57 9 27 135 33,41
+Rectangle 36 8 26 184 120,729
+Rectangle 18 5 14 120 17,306
+Rectangle 6 21 64 13 23,581
+Rectangle 9 43 148 31 -39,896
+Rectangle 6 32 186 30 63,356
+Rectangle 9 27 205 8 26,512
+Rectangle 18 5 12 74 -15
+Rectangle 9 30 123 13 -19,577
+
+curve_2
+Kreis 7 188 218
+Kreis 7 51 83
+Rectangle 29 7 263 218 18,137
+Rectangle 8 22 263 250 -77,504
+Rectangle 22 7 253 201 36,404
+Rectangle 53 13 233 10 36,9
+Rectangle 52 9 256 64 -173,076
+Rectangle 41 15 199 -7 73,185
+Rectangle 9 42 82 30 38,301
+Rectangle 15 58 8 -6 -23,488
+Rectangle 9 27 225 193 -32,157
+Rectangle 53 9 251 112 -20,698
+Rectangle 9 36 219 168 47,429
+Rectangle 14 33 114 9 18,31
+Rectangle 10 35 54 26 114,421
+Rectangle 15 212 60 0 0
+Rectangle 219 9 263 15 0
+
+curve_3
+Kreis 7 222 83
+Kreis 7 82 220
+Rectangle 219 15 257 53 0
+Rectangle 15 212 45 257 0
+Rectangle 28 4 250 117 22,572
+Rectangle 6 26 226 226 51,125
+Rectangle 4 30 19 265 18,131
+Rectangle 6 25 239 205 70,758
+Rectangle 25 5 133 242 -100,831
+Rectangle 52 11 103 215 53,113
+Rectangle 36 8 212 231 120,729
+Rectangle 18 5 59 246 -43,342
+Rectangle 6 21 239 63 41,81
+Rectangle 9 43 215 98 -52,394
+Rectangle 6 32 57 237 63,356
+Rectangle 9 27 225 70 26,512
+Rectangle 18 5 267 9 -15
+Rectangle 9 30 251 37 -105,162
+

@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B4E41CE5-8416-4AD8-AC71-020C92AE08C8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Client</RootNamespace>
+    <AssemblyName>Client</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Client.App</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Apache.NMS, Version=1.7.1.3894, Culture=neutral, PublicKeyToken=82756feee3957618, processorArchitecture=MSIL">
+      <HintPath>..\packages\Apache.NMS.1.7.1\lib\net40\Apache.NMS.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Apache.NMS.ActiveMQ, Version=1.7.1.3924, Culture=neutral, PublicKeyToken=82756feee3957618, processorArchitecture=MSIL">
+      <HintPath>..\packages\Apache.NMS.ActiveMQ.1.7.1\lib\net40\Apache.NMS.ActiveMQ.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Numerics.Vectors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Behaviours\BallBehaviour.cs" />
+    <Compile Include="Behaviours\ChangeImageBehaviour.cs" />
+    <Compile Include="Behaviours\FlipperBehaviour.cs" />
+    <Compile Include="Behaviours\ParentClass\UIElementBehaviour.cs" />
+    <Compile Include="Behaviours\PlungerBehaviour.cs" />
+    <Compile Include="Behaviours\VibrationBehaviour.cs" />
+    <Compile Include="Behaviours\VibrationChangeImageBehaviour.cs" />
+    <Compile Include="Communication\BrokerManager.cs" />
+    <Compile Include="Communication\Command.cs" />
+    <Compile Include="Communication\Consumer.cs" />
+    <Compile Include="Communication\EditorConsumer.cs" />
+    <Compile Include="Communication\EditorProducer.cs" />
+    <Compile Include="Communication\GameConsumer.cs" />
+    <Compile Include="Helper\ViewModelBase.cs" />
+    <Compile Include="Extensions\UIElementUpdateExtension.cs" />
+    <Compile Include="Communication\GameProducer.cs" />
+    <Compile Include="Communication\MainConsumer.cs" />
+    <Compile Include="Communication\MainProducer.cs" />
+    <Compile Include="Communication\Parameter.cs" />
+    <Compile Include="Communication\Producer.cs" />
+    <Compile Include="Helper\ActionCommand.cs" />
+    <Compile Include="Behaviours\AgileModelBehaviour.cs" />
+    <Compile Include="Models\EditorButtonData.cs" />
+    <Compile Include="Models\EditorModel.cs" />
+    <Compile Include="Models\GameButtonData.cs" />
+    <Compile Include="Models\GameElement.cs" />
+    <Compile Include="Models\GameModel.cs" />
+    <Compile Include="Models\PlayerInGameData.cs" />
+    <Compile Include="Models\PlayerReadyData.cs" />
+    <Compile Include="Models\SoundManager.cs" />
+    <Compile Include="ViewModels\AboutViewModel.cs" />
+    <Compile Include="ViewModels\ClientlistViewModel.cs" />
+    <Compile Include="ViewModels\EditorViewModel.cs" />
+    <Compile Include="ViewModels\GameFieldSelectionViewModel.cs" />
+    <Compile Include="ViewModels\GameLobbyViewModel.cs" />
+    <Compile Include="ViewModels\HighscoreViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\EditorMenuViewModel.cs" />
+    <Compile Include="ViewModels\GameMenuViewModel.cs" />
+    <Compile Include="ViewModels\GameViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MenuViewModel.cs" />
+    <Compile Include="View\GamePictures.cs" />
+    <Compile Include="View\UserControls\ClientlistView.xaml.cs">
+      <DependentUpon>ClientlistView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\EditorMenuView.xaml.cs">
+      <DependentUpon>EditorMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\EditorView.xaml.cs">
+      <DependentUpon>EditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\GameFieldSelectionView.xaml.cs">
+      <DependentUpon>GameFieldSelectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\GameLobbyView.xaml.cs">
+      <DependentUpon>GameLobbyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\GameMenuView.xaml.cs">
+      <DependentUpon>GameMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\GameView.xaml.cs">
+      <DependentUpon>GameView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\HighscoreView.xaml.cs">
+      <DependentUpon>HighscoreView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\MenuView.xaml.cs">
+      <DependentUpon>MenuView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Dictionary1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="View\UserControls\ClientlistView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\EditorMenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\EditorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\GameFieldSelectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\GameLobbyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\GameMenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\GameView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\HighscoreView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\UserControls\AboutView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\UserControls\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\MenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="Resources\Pictures\playercolor.ai" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictures\Team.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 und x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Pictures\Icon_Network.png" />
+    <Resource Include="Resources\Pictures\Icon_Profile.png" />
+    <Resource Include="Resources\Pictures\Logo_swt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictures\Mehrspielermodus_text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictures\check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Game_Pictures\Elemente_Flipper_1.png" />
+    <Resource Include="Resources\Game_Pictures\Elemente_Bumper_S.png" />
+    <Resource Include="Resources\Game_Pictures\Elemente_Bumper_M.png" />
+    <Resource Include="Resources\Game_Pictures\Elemente_Bumper_L.png" />
+    <Resource Include="Resources\Game_Pictures\Element_Bogen_0.png" />
+    <Resource Include="Resources\Game_Pictures\Element_Bogen_1.png" />
+    <Resource Include="Resources\Game_Pictures\Element_Bogen_2.png" />
+    <Resource Include="Resources\Game_Pictures\Element_Bogen_3.png" />
+    <Resource Include="Resources\Game_Pictures\Element_Slingshot_0.png" />
+    <Resource Include="Resources\Game_Pictures\Element_Slingshot_1.png" />
+    <Resource Include="Resources\Game_Pictures\Element_Slingshot_2.png" />
+    <Resource Include="Resources\Game_Pictures\Element_Slingshot_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Game_Pictures\Ball.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Game_Pictures\Elemente_Flipper_2.png" />
+    <Resource Include="Resources\Game_Pictures\Elemente_Flipper_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictures\playercolor_1.png" />
+    <Resource Include="Resources\Pictures\playercolor_2.png" />
+    <Resource Include="Resources\Pictures\playercolor_3.png" />
+    <Resource Include="Resources\Pictures\playercolor_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Game_Pictures\Elemente_Flipper_0_1.png" />
+    <Resource Include="Resources\Game_Pictures\Elemente_Flipper_0_2.png" />
+    <Resource Include="Resources\Game_Pictures\Elemente_Flipper_0_3.png" />
+    <Resource Include="Resources\Game_Pictures\Elemente_Flipper_0_4.png" />
+    <Resource Include="Resources\Game_Pictures\Elemente_Flipper_1_1.png" />
+    <Resource Include="Resources\Game_Pictures\Elemente_Flipper_1_2.png" />
+    <Resource Include="Resources\Game_Pictures\Elemente_Flipper_1_3.png" />
+    <Resource Include="Resources\Game_Pictures\Elemente_Flipper_1_4.png" />
+    <Resource Include="Resources\Game_Pictures\Elemente_Flipper_2_1.png" />
+    <Resource Include="Resources\Game_Pictures\Elemente_Flipper_2_2.png" />
+    <Resource Include="Resources\Game_Pictures\Elemente_Flipper_2_3.png" />
+    <Resource Include="Resources\Game_Pictures\Elemente_Flipper_2_4.png" />
+    <Resource Include="Resources\Game_Pictures\Elemente_Flipper_3_1.png" />
+    <Resource Include="Resources\Game_Pictures\Elemente_Flipper_3_2.png" />
+    <Resource Include="Resources\Game_Pictures\Elemente_Flipper_3_3.png" />
+    <Resource Include="Resources\Game_Pictures\Elemente_Flipper_3_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Game_Pictures\Element_Slingshot_0_Bounce.png" />
+    <Resource Include="Resources\Game_Pictures\Element_Slingshot_1_Bounce.png" />
+    <Resource Include="Resources\Game_Pictures\Element_Slingshot_2_Bounce.png" />
+    <Resource Include="Resources\Game_Pictures\Element_Slingshot_3_Bounce.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Game_Pictures\Libero_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Game_Pictures\Libero_02.png" />
+    <Resource Include="Resources\Game_Pictures\Libero_03.png" />
+    <Resource Include="Resources\Game_Pictures\Libero_04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Game_Pictures\GoalPost_vertical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Game_Pictures\goalpost_horizontal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Game_Pictures\goal_player_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Game_Pictures\goal_player_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Game_Pictures\goal_player_3.png" />
+    <Resource Include="Resources\Game_Pictures\goal_player_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Game_Pictures\goalArea_player_1.png" />
+    <Resource Include="Resources\Game_Pictures\goalArea_player_2.png" />
+    <Resource Include="Resources\Game_Pictures\goalArea_player_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Game_Pictures\goalArea_player_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictures\next_grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictures\next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictures\menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictures\next1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictures\next2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictures\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictures\left-arrow.png" />
+    <Resource Include="Resources\Pictures\trash.png" />
+    <Resource Include="Resources\Pictures\undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictures\redo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictures\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictures\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictures\Spielfeldwahl_Text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictures\Spielfeld.png" />
+    <Resource Include="Resources\Pictures\Raster_Links.png" />
+    <Resource Include="Resources\Game_Pictures\Elemente_Bumper_L_Bounce.png" />
+    <Resource Include="Resources\Pictures\Spiellobby_text.png" />
+    <Resource Include="Resources\Game_Pictures\Plunger.png" />
+    <Resource Include="Resources\Game_Pictures\Element_Curve.png" />
+    <Resource Include="Resources\Game_Pictures\Element_Curve_0.png" />
+    <Resource Include="Resources\Game_Pictures\Element_Curve_1.png" />
+    <Resource Include="Resources\Game_Pictures\Element_Curve_2.png" />
+    <Resource Include="Resources\Game_Pictures\Element_Curve_3.png" />
+    <Resource Include="Resources\Pictures\Raster_Oben.png" />
+    <Resource Include="Resources\Pictures\killLines.png" />
+    <Resource Include="Resources\Pictures\text_Highscore.png" />
+    <Resource Include="Resources\Pictures\text_Mehrspielermodus.png" />
+    <Resource Include="Resources\Pictures\text_Spiel-erstellen.png" />
+    <Resource Include="Resources\Pictures\text_Spielfeldwahl.png" />
+    <Resource Include="Resources\Pictures\text_Spiellobby.png" />
+    <Resource Include="Resources\Pictures\menu_bg_branchtrees_bw.png" />
+    <Resource Include="Resources\Pictures\menu_bg_branchtrees_color.png" />
+    <Resource Include="Resources\Pictures\text_Spielraueme.png" />
+    <Resource Include="Resources\Pictures\text_Editierraueme.png" />
+    <Resource Include="Resources\Pictures\mi-team.jpg" />
+    <Resource Include="Resources\Pictures\text_Ueberuns.png" />
+    <Content Include="Resources\Sounds\ball_wall.wav" />
+    <Content Include="Resources\Sounds\bing_kurz.wav" />
+    <Content Include="Resources\Sounds\boing2_kurz.wav" />
+    <Content Include="Resources\Sounds\boing_kurz.wav" />
+    <Content Include="Resources\Sounds\countdown.wav" />
+    <Content Include="Resources\Sounds\flipper_down.wav" />
+    <Content Include="Resources\Sounds\flipper_up.wav" />
+    <Content Include="Resources\Sounds\goal.wav" />
+    <Content Include="Resources\Sounds\libero.wav" />
+    <Content Include="Resources\Sounds\shootout.wav" />
+    <Content Include="Resources\Sounds\schnack_kurz.wav" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
