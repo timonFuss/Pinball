@@ -1,5 +1,8 @@
 # Pinball
 
+<img src="https://user-images.githubusercontent.com/19949679/39542656-6dd57520-4e49-11e8-9a03-1309d87b3b91.PNG" width="250" height="250">
+
+
 # Einleitung
 
 Wir wollen einen Multiplayer Flipper erstellen, der auf verschiedenen Computern das Zusammenspiel ermöglicht.
