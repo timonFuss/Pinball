@@ -28,5 +28,7 @@ Am Ende des Spiels gibt es die Möglichkeit auf eine Revanche. Das heißt man ka
 
 Es soll zudem möglich sein, dass Nutzer ihre eigenen Spielfelder aufbauen können oder aber bestehende Spielfelder editieren. Dazu bekommen sie eine Vorlage und eine Liste mit allen verfügbaren Bausteinen für einen Flipper. Der Nutzer kann sich nach Belieben die Steine auf das Spielfeld ziehen und so seine ganz eigene Kreation eines Flipper-Spiels erarbeiten. Seine Kreation kann er dann auf dem Server zwischenspeichern und später das Spielfeld laden und bespielen. Es gibt im Spielfeld bestimmte Bereiche, in denen kein Stein gesetzt werden kann, damit die Hebel nicht zugebaut werden können. Zudem ist initial auf dem Feld jeder Libero zu sehen. Im Spiel wird der Libero auch von dieser Position starten.
 
+<img src="https://user-images.githubusercontent.com/19949679/39543096-95aea494-4e4a-11e8-8443-d494274cefd7.png" width="250" height="250">
+
 Ein nettes und hilfreiches Feature sind dabei Hilfslinien, die man sich selbst ziehen kann. Aus der Seite können diese gezogen werden und auf dem Feld, je nach Belieben gezogen werden, um eine fast punktgenaue Symmetrie im Feld herzustellen.
 
